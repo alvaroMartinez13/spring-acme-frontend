@@ -40,7 +40,7 @@ El frontend se comunica con el backend utilizando JWT (JSON Web Tokens). Al inic
 ## 📌 Enlaces Relacionados
 **Repositorio Backend**
 - Backend: https://github.com/alvaroMartinez13/spring-acme-backend
-- Hash: 
+- Hash: ec8495b760431d41590b -> Hash oficial y el cual se ha entregado en la plataforma Campuslands
 - 
 ## 📒 Creado Por
 - Alvaro martinez
