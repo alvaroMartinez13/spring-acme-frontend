@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  background-color: #f3f4f6;
+}
+
+#root {
+  transition: background-color 0.3s ease-in-out;
+  font-family: "Kumbh Sans", serif;
+}
+
+.dark #root{
+    background-color: #111827;
+}
+
+.dark {
+  background-color: #111827;
+}
+
+.dark form {
+  background-color: #1f2937 !important;
+  color: #f3f4f6 !important;
+}
+
+.dark {
+  background-color: #111827;
+  color: #e5e7eb;
+}
+
+.dark p,
+.dark h2 {
+  color: #e5e7eb !important;
+}
+
+.dark input{
+  background-color: #1f2937;
+}
+
+#buttonTheme:hover{
+    box-shadow: 10px 10px 37px 0px rgba(0,0,0,0.75);
+}
+
+.dark #buttonTheme:hover{
+    box-shadow: 10px 10px 37px 0px rgba(255, 255, 255, 0.75);
+}

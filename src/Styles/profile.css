@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.dark #contentProfile{
+    background-color: #4d6663;
+}
+
+.dark #buttonChange{
+    color: rgb(243, 245, 247);
+}
+
+.dark textarea{
+    background-color: #1f2937;
+}

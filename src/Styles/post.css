@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  background-color: #7ecfc6;
+}
+
+#root {
+  transition: background-color 0.3s ease-in-out;
+}
+
+h2{
+  font-family: "Preahvihear", serif;
+}
+
+.dark #root {
+  background-color: #111827;
+}
+
+
+.dark aside,
+.dark main {
+  background-color: #4d6663b0;
+}
+
+.dark nav {
+  background-color: #4d6663;
+}
+
+#linea {
+  border: 1px solid #363b446e;
+}
+
+.dark #linea {
+  border: 1px solid #f3f3f3;
+}
+
+.dark #back-dark {
+  background-color:#4d6663;
+}
+
+.dark span{
+  color: #e5e7eb;
+}
+
+.dark #buttonComment{
+  color: #e5e7eb;
+}
+
+.dark span:hover{
+  color: #4d6663;
+}

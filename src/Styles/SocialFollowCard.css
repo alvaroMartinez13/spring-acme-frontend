@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+.tw-followCard{
+    display: flex;
+    align-items:center;
+    font-size: .8rem;
+    justify-content: space-between;
+}
+
+.tw-followCard-header{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tw-followCard-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.tw-followCard-infoUserName{
+    opacity: .6;
+}
+
+.tw-followCard-button{
+    margin-left: 16px;
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #bbb;
+}
+
+#follow{
+    background-color: transparent;
+}
+
+.tw-followCard-text{
+    display: block;
+}
+
+.tw-followCard-button.is-following{
+    border: 1px solid #bbb;
+    width: 140px;
+}
+
+.tw-followCard-button:hover{
+    border: 1px solid #eee;
+    transition: .3s ease border;
+    opacity: .8;
+}
+
+.tw-followCard-button.is-following:hover{
+    display: block;
+    background: rgba(136, 5, 5, 0.678);
+    color: red;
+    border-color: rgb(104, 13, 13);
+    transition: .3s ease border;
+}
+
+.tw-followCard-stopFollow{
+    display: none;
+}
+
+.tw-followCard-button.is-following:hover .tw-followCard-stopFollow{
+    display: block;
+}
+
+.tw-followCard-button.is-following:hover .tw-followCard-text{
+    display: none;
+}
