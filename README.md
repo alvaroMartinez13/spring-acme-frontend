@@ -39,7 +39,7 @@ El frontend se comunica con el backend utilizando JWT (JSON Web Tokens). Al inic
 
 ## 📌 Enlaces Relacionados
 **Repositorio Backend**
-- Frontend: https://github.com/alvaroMartinez13/spring-acme-backend
+- Backend: https://github.com/alvaroMartinez13/spring-acme-backend
 - Hash: 
 - 
 ## 📒 Creado Por
