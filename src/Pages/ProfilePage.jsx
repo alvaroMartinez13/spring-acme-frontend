@@ -12,7 +12,7 @@ const formatDate = (date) => {
 };
 
 const UserProfilePage = () => {
-    const { user, updateUser, fetchUser } = useContext(AuthContext); 
+    const { user, updateUser, fetchUser } = useContext(AuthContext);
     const [posts, setPosts] = useState([]);
     const [editing, setEditing] = useState(false);
     const [userData, setUserData] = useState({ ...user });
@@ -46,8 +46,8 @@ const UserProfilePage = () => {
     };
 
     const handleSave = async () => {
-        await updateUser(userData); 
-        await fetchUser(localStorage.getItem("token")); 
+        await updateUser(userData);
+        await fetchUser(localStorage.getItem("token"));
         setEditing(false);
     };
 
@@ -62,7 +62,6 @@ const UserProfilePage = () => {
             <Navbar />
             <div className="pt-20 px-5">
                 <div id="contentProfile" className="max-w-4xl mx-auto bg-white p-5 rounded-lg shadow-md">
-                    {/* Contenedor de perfil */}
                     <div className="flex flex-col sm:flex-row items-center space-x-4">
                         <img
                             src={user?.profilePicture}
@@ -167,22 +166,19 @@ const UserProfilePage = () => {
                     </div>
                 </div>
 
-                {/* Publicaciones */}
-                <div className="mt-10">
+                <div id="container" className="mt-10">
                     <h2 className="text-xl font-semibold mb-4">Tus Publicaciones</h2>
                     <button className="bg-green-400 text-white text-sm px-3 py-2 rounded-md shadow-md hover:bg-green-600">
                         📖 New Post
                     </button>
                     {posts.length > 0 ? (
                         posts.map((post) => (
-                            <PostBase
-                                key={post.id}
+                            <PostBase key={post.id}
                                 username={post.username}
                                 imageUrl={post.imageUrl}
                                 description={post.description}
                                 imageProfile={post.imageProfile}
-                                idPost={post.id}
-                                usernameUser={user?.username}
+                                idPost={post.id} usernameUser={user.username}
                             />
                         ))
                     ) : (

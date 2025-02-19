@@ -49,3 +49,7 @@ h2{
 .dark span:hover{
   color: #4d6663;
 }
+
+.dark #container{
+  background-color: #111827;
+}

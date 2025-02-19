@@ -1,17 +1,30 @@
-import '../Styles/SocialFollowCard.css'
-import { useState } from 'react';
+import '../Styles/SocialFollowCard.css';
+import { useState, useContext } from 'react';
+import { followUser, unfollowUser } from '../Services/FollowService';
+import { AuthContext } from '../Context/AuthContext';
 
-export default function SocialFollowCard({ userName, name, initialIsFollowing, profile }) {
+export default function SocialFollowCard({ userName, name, initialIsFollowing, profile, updateLists }) {
+    const { user } = useContext(AuthContext);
     const [isFollowing, setIsFollowing] = useState(initialIsFollowing);
 
-    const handleClick = () => {
-        setIsFollowing(!isFollowing);
-    }
+    const handleClick = async () => {
+        try {
+            if (isFollowing) {
+                await unfollowUser(userName);
+            } else {
+                await followUser(userName);
+            }
+            setIsFollowing(!isFollowing);
+            updateLists(); // Actualizar listas en HomePage
+        } catch (error) {
+            console.error("Error al actualizar seguimiento:", error);
+        }
+    };
 
     const following = isFollowing ? 'Siguiendo' : 'Seguir';
     const buttonClassName = isFollowing
         ? 'tw-followCard-button is-following'
-        : 'tw-followCard-button'
+        : 'tw-followCard-button';
 
     return (
         <article className='tw-followCard'>
@@ -34,5 +47,5 @@ export default function SocialFollowCard({ userName, name, initialIsFollowing, p
                 </button>
             </aside>
         </article>
-    )
+    );
 }

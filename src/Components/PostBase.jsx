@@ -44,7 +44,7 @@ const PostBase = ({ username, imageUrl, description, imageProfile, idPost, usern
     };
 
     return (
-        <div className="bg-gray-100 flex items-center justify-center w-full mb-4 rounded-md">
+        <div id='container' className="bg-gray-100 flex items-center justify-center w-full mb-4 rounded-md">
             <div id='back-dark' className="bg-white p-6 rounded-lg border border-gray-300 w-full max-w-2xl mx-auto">
                 <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-2">

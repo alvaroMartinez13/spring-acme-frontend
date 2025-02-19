@@ -11,3 +11,7 @@
 .dark textarea{
     background-color: #1f2937;
 }
+
+.dark #container{
+    background-color: #111827;
+}

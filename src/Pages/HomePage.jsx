@@ -5,7 +5,7 @@ import PostBase from "../Components/PostBase";
 import SocialFollowCard from "../Components/SocialFollowCard";
 import { getUsersNotFollowed, getUserFollowing } from '../Services/UserService';
 import { getPosts } from '../Services/PostService';
-import NewPost from '../Components/NewPost';  // Asegúrate de importar el componente NewPost
+import NewPost from '../Components/NewPost';
 import "../Styles/post.css";
 
 const HomePage = () => {
@@ -14,7 +14,7 @@ const HomePage = () => {
     const [notFollowedUsers, setNotFollowedUsers] = useState([]);
     const [following, setFollowing] = useState([]);
     const [isMobile, setIsMobile] = useState(false);
-    const [showModal, setShowModal] = useState(false);  // Estado para controlar el modal
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
@@ -47,15 +47,28 @@ const HomePage = () => {
         }
     }, [user]);
 
-    const openModal = () => setShowModal(true);  // Abrir modal
-    const closeModal = () => setShowModal(false);  // Cerrar modal
+    const updateLists = async () => {
+        try {
+            const [usersNotFollowed, usersFollowing] = await Promise.all([
+                getUsersNotFollowed(),
+                getUserFollowing()
+            ]);
+            setNotFollowedUsers(usersNotFollowed);
+            setFollowing(usersFollowing);
+        } catch (error) {
+            console.error("Error actualizando listas de seguimiento:", error);
+        }
+    };
+
+    const openModal = () => setShowModal(true);
+    const closeModal = () => setShowModal(false);
 
     return (
         <div className="min-h-screen flex flex-col ">
             <Navbar />
 
             <div className="grid grid-cols-9 gap-4 px-2 py-2 pt-4 flex-grow mt-12 bg-teal-200">
-                
+
                 {!isMobile && (
                     <aside className="col-span-2 bg-white/40 p-4 rounded-lg shadow-md self-start sticky top-0">
                         <div className="flex flex-col items-center gap-2">
@@ -78,6 +91,7 @@ const HomePage = () => {
                                             userName={username}
                                             name={name}
                                             profile={profilePicture}
+                                            updateLists={updateLists}
                                         />
                                     ))
                                 ) : (
@@ -89,7 +103,7 @@ const HomePage = () => {
                 )}
 
                 <main className={`container ${isMobile ? "col-span-9" : "col-span-5"} bg-white/40 p-6 rounded-lg shadow-md overflow-y-auto h-screen self-start`}>
-                    
+
                     {isMobile && (
                         <div className="relative mb-4">
                             <input
@@ -103,8 +117,8 @@ const HomePage = () => {
 
                     <section className="relative">
                         <div className="flex gap-4">
-                            <button 
-                                onClick={openModal}  // Abrir modal cuando se haga clic
+                            <button
+                                onClick={openModal}
                                 className="bg-green-400 text-white text-sm px-3 py-2 rounded-md shadow-md hover:bg-green-600">
                                 📖 New Post
                             </button>
@@ -131,6 +145,7 @@ const HomePage = () => {
                                         userName={username}
                                         name={name}
                                         profile={profilePicture}
+                                        updateLists={updateLists}
                                     />
                                 ))
                             ) : (
@@ -145,7 +160,7 @@ const HomePage = () => {
             {showModal && (
                 <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
                     <div className="bg-white p-4 rounded-lg shadow-lg w-full max-w-lg">
-                        <NewPost closeModal={closeModal} /> {/* Pasamos la función closeModal */}
+                        <NewPost closeModal={closeModal} />
                     </div>
                 </div>
             )}

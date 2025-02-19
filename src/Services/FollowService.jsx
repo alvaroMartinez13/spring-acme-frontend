@@ -1,3 +1,4 @@
+import { getUsernameFromToken } from "../Utils/auth.js";
 
 export const followUser = async (followedUsername) => {
 
